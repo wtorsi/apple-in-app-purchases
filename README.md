@@ -27,4 +27,6 @@ APPLE_API_ISSUER_ID=!ChangeMe!
 APPLE_API_PRIVATE_KEY_ID=!ChangeMe!
 ```
 
-The example contains only the set of files. The example itself could not work directly after cloning the repository. You can reuse the code if you want.
+The example contains only the set of files. The example itself could not work directly after cloning the repository. 
+
+You can reuse the code if you want. If you have any suggestions you can create a pull request to discuss it.
