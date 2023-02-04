@@ -10,12 +10,38 @@ doctrine:
         enable_lazy_ghost_objects: true
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
-        mappings:
-            App:
-                is_bundle: false
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
-                alias: App
+        second_level_cache:
+            region_cache_driver:
+                type: pool
+                pool: doctrine.result_cache_pool
+            region_lock_lifetime: 100
+            region_lifetime: 7200
+            log_enabled: false
+            enabled: true
+            regions:
+                fast:
+                    cache_driver:
+                        type: service
+                        id: doctrine.result_cache_provider
+                    lock_path: '%kernel.cache_dir%/doctrine/orm/slc/fast.filelock'
+                    lock_lifetime: 10
+                    type: filelock
+
+services:
+    doctrine.result_cache_provider:
+        class: Doctrine\Common\Cache\Psr6\DoctrineProvider
+        factory: ['Doctrine\Common\Cache\Psr6\DoctrineProvider', 'wrap']
+        public: false
+        arguments:
+            - '@doctrine.result_cache_pool'
+
+framework:
+    cache:
+        pools:
+            doctrine.result_cache_pool:
+                adapter: cache.app
+            doctrine.system_cache_pool:
+                adapter: cache.system
 
 when@test:
     doctrine:
@@ -34,11 +60,3 @@ when@prod:
             result_cache_driver:
                 type: pool
                 pool: doctrine.result_cache_pool
-
-    framework:
-        cache:
-            pools:
-                doctrine.result_cache_pool:
-                    adapter: cache.app
-                doctrine.system_cache_pool:
-                    adapter: cache.system

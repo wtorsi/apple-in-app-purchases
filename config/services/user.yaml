@@ -1,0 +1,19 @@
+doctrine:
+    orm:
+        mappings:
+            User:
+                is_bundle: false
+                type: attribute
+                dir: '%kernel.project_dir%/src/User/Entity'
+                prefix: 'User\Entity'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    # default section
+    User\:
+        resource: '../../src/User'
+        exclude: '../../src/User/{Exception,Entity,View}'

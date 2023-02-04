@@ -1,0 +1,15 @@
+apple:
+    resource:
+        path: "../../src/Apple/Action"
+        namespace: Apple\Action
+    type: attribute
+
+
+api_apple:
+    resource:
+        path: "../../src/Api/Apple/Action"
+        namespace: Api\Apple\Action
+    type: attribute
+    prefix: '%api.prefix%'
+    condition: '%api.condition%'
+    defaults: { _locale: '%api.locale%' }

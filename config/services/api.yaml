@@ -1,0 +1,7 @@
+parameters:
+    api.allowed_content_type: 'application/json'
+    api.prefix: /api
+    api.condition: ''
+    api.locale: en
+    api.defaults:
+        _locale: en

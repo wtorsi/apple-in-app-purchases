@@ -1,0 +1,19 @@
+framework:
+    messenger:
+        routing:
+            'Apple\Messenger\Message\VerifyReceipt': async
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    Apple\:
+        resource: '../../src/Apple'
+        exclude: '../../src/Apple/{Exception,Entity,Enum,Messenger/Message,Client/Data,Event}'
+
+    # api
+    Api\Apple\:
+        resource: '../../src/Api/Apple'
+        exclude: '../../src/Api/Apple/{Exception,Entity,View}'
