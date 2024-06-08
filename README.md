@@ -1,19 +1,22 @@
-# Apple In App Purchases
+# Apple In-App Purchases
 
-Because it's impossible to use payments providers such as Stripe to handle digital subscriptions in the app, and due to the complex Apple Documetation regarding In App purchases,
+Because it's impossible to use payment providers such as Stripe to handle digital subscriptions in the app, and due to the complex Apple documentation regarding In-App purchases,
 I decided to publish the working code to handle purchases using Symfony and PHP.
 
-This code contains the simple and stable example of the Apple In App purchases implementation using Symfony.
+This code contains a simple and stable example of the Apple In-App purchases implementation using Symfony.
 
-It means that it correctly validates the Apple Receipt and subscribed to Apple Notifications.
+It means that it correctly validates the Apple Receipt and subscribes to Apple Notifications.
 
-To decode/encode Apple keys the `firebase/php-jwt` with openssl PHP extension are used.
-See `src/Apple/Token/Decoder.php` and `src/Apple/Token/Encoder.php`. No other non Symfony initial vendors are used.
+To decode/encode Apple keys, the `firebase/php-jwt` with OpenSSL PHP extension is used.
+See `src/Apple/Token/Decoder.php` and `src/Apple/Token/Encoder.php`. No other non-Symfony initial vendors are used.
 
 It depends on the `symfony/messenger` to handle any possible fail cases in the runtime.
 
-To set up the project you need to configure the Apple ENV parameters.
-You can do it using https://developer.apple.com/help/account/configure-app-capabilities/enabling-server-to-server-notifications/
+To set up the project, you need to configure the Apple ENV parameters.
+You can do it using 
+- https://developer.apple.com/help/account/configure-app-capabilities/enabling-server-to-server-notifications/
+- https://developer.apple.com/documentation/storekit/in-app_purchase/original_api_for_in-app_purchase/subscriptions_and_offers/enabling_app_store_server_notifications
+
 
 ```
 APPLE_DEBUG=true
