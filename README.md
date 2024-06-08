@@ -16,6 +16,8 @@ To set up the project, you need to configure the Apple ENV parameters.
 You can do it using 
 - https://developer.apple.com/help/account/configure-app-capabilities/enabling-server-to-server-notifications/
 - https://developer.apple.com/documentation/storekit/in-app_purchase/original_api_for_in-app_purchase/subscriptions_and_offers/enabling_app_store_server_notifications
+- https://developer.apple.com/documentation/appstoreserverapi/creating_api_keys_to_authorize_api_requests
+- https://developer.apple.com/documentation/appstoreserverapi/generating_json_web_tokens_for_api_requests
 
 
 ```
